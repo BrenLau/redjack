@@ -1,0 +1,25 @@
+.suit {
+    height: 50px;
+    width: 50px;
+}
+
+.card {
+    background-color: beige;
+    height: 100px;
+    display: flex;
+    width: 50px;
+    flex-direction: column;
+    font-size: large;
+    font-weight: bold;
+    padding: 3px;
+    border-radius: 5px;
+    border: solid black 1px;
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, .4);
+}
+
+.topline {
+    width: calc(100% + 6px);
+    margin-left: 0px;
+    /* background-color: aliceblue; */
+    text-align: left;
+}
