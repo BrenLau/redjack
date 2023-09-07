@@ -1,9 +1,35 @@
 .deck {
-    width: 260px;
+    justify-content: center;
+    width: 270px;
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+/* width */
+.deck::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.deck::-webkit-scrollbar-track {
+    background: #131313;
+}
+
+/* Handle */
+.deck::-webkit-scrollbar-thumb {
+    background: #f80202;
+    border: solid 1px black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .deckcount {
     width: 100%;
+
 }
