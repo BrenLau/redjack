@@ -15,7 +15,7 @@ const Card = ({ card, cardCounter }) => {
             <img className='suit' src={
                 card[1] === 'S' ? spade : card[1] === 'H' ? heart : card[1] === 'C' ? club : diamond
             }></img>
-            <div className='botline'>x{cardCounter[card[0]]}</div>
+            <div className='botline'>x{cardCounter[card]}</div>
 
         </div >
     )
