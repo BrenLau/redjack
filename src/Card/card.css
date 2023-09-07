@@ -1,6 +1,6 @@
 .suit {
-    height: 50px;
-    width: 50px;
+    height: auto;
+    width: 100%;
 }
 
 .card {
@@ -22,4 +22,77 @@
     margin-left: 0px;
     /* background-color: aliceblue; */
     text-align: left;
+}
+
+/* .suit:hover {
+    animation-name: growsuit;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+} */
+
+.card:hover {
+    animation-name: growcard;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+
+/* .suit:not(:hover) {
+    animation-name: ungrowsuit;
+    animation-duration: 1s;
+
+} */
+
+.card:not(:hover) {
+    animation-name: ungrowcard;
+    animation-duration: 1s;
+
+}
+
+/* @keyframes growsuit {
+    from {
+        height: 50px;
+        width: 50px;
+    }
+
+    to {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@keyframes ungrowsuit {
+    from {
+        height: 60px;
+        width: 60px;
+    }
+
+    to {
+        width: 50px;
+        height: 50px;
+    }
+} */
+
+@keyframes growcard {
+    from {
+        height: 100px;
+        width: 50px;
+    }
+
+    to {
+        width: 55px;
+        height: 105px;
+    }
+}
+
+@keyframes ungrowcard {
+    from {
+        width: 55px;
+        height: 105px;
+    }
+
+    to {
+        height: 100px;
+        width: 50px;
+    }
 }
