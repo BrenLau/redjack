@@ -4,7 +4,7 @@ import heart from './suits/heart.png'
 import club from './suits/club.png'
 import diamond from './suits/diamond.png'
 
-const Card = ({ card }) => {
+const Card = ({ card, cardCounter }) => {
     return (
         <div className='card'>
 
@@ -15,6 +15,7 @@ const Card = ({ card }) => {
             <img className='suit' src={
                 card[1] === 'S' ? spade : card[1] === 'H' ? heart : card[1] === 'C' ? club : diamond
             }></img>
+            <div className='botline'>x{cardCounter[card[0]]}</div>
 
         </div >
     )

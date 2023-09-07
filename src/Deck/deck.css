@@ -1,0 +1,9 @@
+.deck {
+    width: 260px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.deckcount {
+    width: 100%;
+}

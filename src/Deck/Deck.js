@@ -45,16 +45,16 @@ const Deck = ({ deckCount }) => {
 
 
     return (
-        <>
-            <div>{currentDeck.length}</div>
+        <div className='deck'>
+            <div className='deckcount'>{currentDeck.length}</div>
             {defaultDeck.map((card) => {
 
                 return (
-                    <Card card={card} />
+                    <Card card={card} cardCounter={cardCounter} />
                 )
             }
             )}
-        </>
+        </div>
     )
 }
 
