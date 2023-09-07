@@ -27,7 +27,7 @@ const Deck = ({ deckCount }) => {
 
     return (
         <>
-            <Card card={'2C'} />
+            <Card card={'KC'} />
             <div>{currentDeck.length}</div>
         </>
     )
