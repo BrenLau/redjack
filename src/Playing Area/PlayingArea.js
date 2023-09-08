@@ -38,13 +38,6 @@ const reset = (decks) => {
 
 
 const PlayingArea = () => {
-
-    const [cardCount, setCardCount] = useState(cardCounter)
-    const [currentDeck, setCurrentDeck] = useState([])
-    const [dealercard, setDealercard] = useState(false)
-    const [yourCards, setYourCards] = useState([])
-    const [yourCount, setYourCount] = useState(0)
-
     const calcAces = (count, aces) => {
         let newCount = count
         for (let i = 0; i < aces; i++) {
@@ -52,6 +45,9 @@ const PlayingArea = () => {
                 newCount += 11
             } else {
                 newCount += 1
+            }
+            if (newCount > 21 && aces >= 2) {
+                newCount -= 10
             }
         }
         return newCount
@@ -69,13 +65,19 @@ const PlayingArea = () => {
                 count += Number(card[0])
             }
         }
-
         if (aces) {
             return (calcAces(count, aces))
+        } else {
+            return count
         }
-
-        return count
     }
+
+    const [cardCount, setCardCount] = useState(cardCounter)
+    const [currentDeck, setCurrentDeck] = useState([])
+    const [dealercard, setDealercard] = useState(false)
+    const [yourCards, setYourCards] = useState([])
+    const [yourCount, setYourCount] = useState(0)
+
 
     useEffect(() => {
         reset(5)
