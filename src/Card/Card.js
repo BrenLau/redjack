@@ -6,7 +6,7 @@ import diamond from './suits/diamond.png'
 import { useState } from 'react'
 import Modal from '../Modal/Modal'
 
-const Card = ({ card, cardCounter }) => {
+const Card = ({ card, cardCounter, setDealercard }) => {
     const [cardCount, setCardCount] = useState(cardCounter)
     const [decide, setDecide] = useState(false)
     return (
@@ -31,6 +31,7 @@ const Card = ({ card, cardCounter }) => {
                             e.preventDefault()
                             e.stopPropagation()
                             if (cardCount[card] > 0) {
+                                setDealercard(card)
                                 let currentCards = { ...cardCount }
                                 currentCards[card] -= 1
                                 setCardCount(currentCards)
@@ -77,7 +78,7 @@ const Card = ({ card, cardCounter }) => {
                 <img className='suit' src={
                     card[1] === 'S' ? spade : card[1] === 'H' ? heart : card[1] === 'C' ? club : diamond
                 }></img>
-                <div className='botline'>x{cardCount[card]}</div>
+                {cardCounter ? <div className='botline'>x{cardCount[card]}</div> : null}
 
             </div >
         </>

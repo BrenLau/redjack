@@ -1,6 +1,7 @@
 import './playingarea.css'
 import Deck from '../Deck/Deck'
 import { useState, useEffect } from 'react'
+import DealerHand from '../DealerHand/DealerHand'
 
 const defaultDeck = ['AS', 'AH', 'AC', 'AD', '2S', '2H', '2C', '2D', '3S', '3H', '3C', '3D', '4S', '4H', '4C', '4D', '5S', '5H', '5C', '5D', '6S', '6H', '6C', '6D', '7S', '7H', '7C', '7D', '8S', '8H', '8C', '8D', '9S', '9H', '9C', '9D', 'TS', 'TH', 'TC', 'TD', 'JS', 'JH', 'JC', 'JD', 'QS', 'QH', 'QC', 'QD', 'KS', 'KH', 'KC', 'KD']
 const cardCounter = {
@@ -33,9 +34,13 @@ const reset = (decks) => {
     return deck
 }
 
+
 const PlayingArea = () => {
 
     const [currentDeck, setCurrentDeck] = useState([])
+    const [dealercard, setDealercard] = useState(false)
+    const [yourCards, setYourCards] = useState([])
+
 
     useEffect(() => {
         reset(5)
@@ -44,8 +49,9 @@ const PlayingArea = () => {
 
 
     return (
-        <div>
-            <Deck defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
+        <div className='playingarea'>
+            <DealerHand card={dealercard} clear={setDealercard} />
+            <Deck setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
         </div>
     )
 }
