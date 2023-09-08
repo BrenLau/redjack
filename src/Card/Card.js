@@ -12,7 +12,9 @@ const Card = ({ card, cardCounter }) => {
     return (
         <>
             {decide ? <Modal onClick={setDecide}>
-                <div className='decideBar'>
+                <div onClick={(e) => {
+                    e.stopPropagation()
+                }} className='decideBar'>
                     <div className='card'>
                         <div className='topline'>{
                             card[0] === 'T' ? '10' : card[0]
@@ -25,7 +27,7 @@ const Card = ({ card, cardCounter }) => {
 
                     </div >
                     <div className='options'>
-                        <button onClick={(e) => {
+                        <button className='decisionButton' onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
                             if (cardCount[card] > 0) {
@@ -35,7 +37,7 @@ const Card = ({ card, cardCounter }) => {
                                 setDecide(false)
                             }
                         }}>Dealer</button>
-                        <button onClick={(e) => {
+                        <button className='decisionButton' onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
                             if (cardCount[card] > 0) {
@@ -46,7 +48,7 @@ const Card = ({ card, cardCounter }) => {
 
                             }
                         }}>Your Hand</button>
-                        <button onClick={(e) => {
+                        <button className='decisionButton' onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
                             if (cardCount[card] > 0) {
@@ -56,7 +58,7 @@ const Card = ({ card, cardCounter }) => {
                                 setDecide(false)
 
                             }
-                        }}>Trash</button>
+                        }}>Discard</button>
                     </div>
                 </div>
             </Modal> : null}
