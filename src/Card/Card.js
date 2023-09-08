@@ -6,8 +6,7 @@ import diamond from './suits/diamond.png'
 import { useState } from 'react'
 import Modal from '../Modal/Modal'
 
-const Card = ({ card, cardCounter, setDealercard }) => {
-    const [cardCount, setCardCount] = useState(cardCounter)
+const Card = ({ cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
     const [decide, setDecide] = useState(false)
     return (
         <>
@@ -27,17 +26,20 @@ const Card = ({ card, cardCounter, setDealercard }) => {
 
                     </div >
                     <div className='options'>
-                        <button className='decisionButton' onClick={(e) => {
-                            e.preventDefault()
-                            e.stopPropagation()
-                            if (cardCount[card] > 0) {
-                                setDealercard(card)
-                                let currentCards = { ...cardCount }
-                                currentCards[card] -= 1
-                                setCardCount(currentCards)
-                                setDecide(false)
-                            }
-                        }}>Dealer</button>
+                        <button className='decisionButton'
+                            // disabled={dealercard ? true : false}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                if (cardCount[card] > 0) {
+                                    let currentCards = { ...cardCount }
+                                    currentCards[dealercard] += 1
+                                    setDealercard(card)
+                                    currentCards[card] -= 1
+                                    setCardCount(currentCards)
+                                    setDecide(false)
+                                }
+                            }}>Dealer</button>
                         <button className='decisionButton' onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()

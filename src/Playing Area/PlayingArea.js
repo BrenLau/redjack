@@ -37,6 +37,7 @@ const reset = (decks) => {
 
 const PlayingArea = () => {
 
+    const [cardCount, setCardCount] = useState(cardCounter)
     const [currentDeck, setCurrentDeck] = useState([])
     const [dealercard, setDealercard] = useState(false)
     const [yourCards, setYourCards] = useState([])
@@ -51,7 +52,7 @@ const PlayingArea = () => {
     return (
         <div className='playingarea'>
             <DealerHand card={dealercard} clear={setDealercard} />
-            <Deck setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
+            <Deck cardCount={cardCount} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
         </div>
     )
 }

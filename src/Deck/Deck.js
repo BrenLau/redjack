@@ -2,19 +2,14 @@ import './deck.css'
 import { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 
-const Deck = ({ setDealercard, defaultDeck, cardCounter, setCurrentDeck, reset, currentDeck }) => {
-
-    // useEffect(() => {
-    //     reset(5)
-    // }, [])
+const Deck = ({ cardCount, setCardCount, dealercard, setDealercard, defaultDeck, cardCounter, setCurrentDeck, reset, currentDeck }) => {
 
     return (
         <div className='deck'>
-            {/* <div className='deckcount'>{currentDeck.length}</div> */}
             {defaultDeck.map((card) => {
 
                 return (
-                    <Card setDealercard={setDealercard} card={card} cardCounter={cardCounter} />
+                    <Card cardCount={cardCount} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} card={card} cardCounter={cardCounter} />
                 )
             }
             )}
