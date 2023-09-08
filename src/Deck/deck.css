@@ -20,13 +20,16 @@
 
 /* Handle */
 .deck::-webkit-scrollbar-thumb {
-    background: #f80202;
+    background: rgb(173, 53, 53);
+    background: linear-gradient(0deg, rgba(173, 53, 53, 1) 0%, rgba(255, 0, 0, 1) 50%, rgba(173, 53, 53, 1) 100%);
     border: solid 1px black;
+
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: rgb(212, 34, 34);
+    background: linear-gradient(0deg, rgba(212, 34, 34, 1) 0%, rgba(255, 0, 0, 1) 50%, rgba(212, 34, 34, 1) 100%);
 }
 
 .deckcount {
