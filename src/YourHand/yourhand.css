@@ -9,4 +9,12 @@
     border-bottom: solid rgba(0, 0, 0, .5) 1px;
     position: absolute;
     bottom: 0px;
+
+}
+
+.yourcount {
+    position: absolute;
+    top: 0px;
+    height: 25px;
+    font-weight: bold;
 }

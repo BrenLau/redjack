@@ -6,7 +6,7 @@ import diamond from './suits/diamond.png'
 import { useState } from 'react'
 import Modal from '../Modal/Modal'
 
-const Card = ({ yourCards, setYourCards, cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
+const Card = ({ setYourCount, yourCards, setYourCards, cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
     const [decide, setDecide] = useState(false)
     return (
         <>

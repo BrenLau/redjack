@@ -43,7 +43,39 @@ const PlayingArea = () => {
     const [currentDeck, setCurrentDeck] = useState([])
     const [dealercard, setDealercard] = useState(false)
     const [yourCards, setYourCards] = useState([])
+    const [yourCount, setYourCount] = useState(0)
 
+    const calcAces = (count, aces) => {
+        let newCount = count
+        for (let i = 0; i < aces; i++) {
+            if (newCount <= 10) {
+                newCount += 11
+            } else {
+                newCount += 1
+            }
+        }
+        return newCount
+    }
+
+    const countHand = (hand) => {
+        let count = 0
+        let aces = 0
+        for (let card of hand) {
+            if (card[0] === 'J' || card[0] === 'Q' || card[0] === 'K' || card[0] === 'T') {
+                count += 10
+            } else if (card[0] === 'A') {
+                aces += 1
+            } else {
+                count += Number(card[0])
+            }
+        }
+
+        if (aces) {
+            return (calcAces(count, aces))
+        }
+
+        return count
+    }
 
     useEffect(() => {
         reset(5)
@@ -54,8 +86,8 @@ const PlayingArea = () => {
     return (
         <div className='playingarea'>
             <DealerHand card={dealercard} clear={setDealercard} />
-            <YourHand yourCards={yourCards} setYourCards={setYourCards} />
-            <Deck cardCount={cardCount} yourCards={yourCards} setYourCards={setYourCards} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
+            <YourHand countHand={countHand} setYourCount={setYourCount} yourCount={yourCount} yourCards={yourCards} setYourCards={setYourCards} />
+            <Deck setYourCount={setYourCount} cardCount={cardCount} yourCards={yourCards} setYourCards={setYourCards} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
         </div>
     )
 }
