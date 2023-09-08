@@ -6,7 +6,7 @@ import diamond from './suits/diamond.png'
 import { useState } from 'react'
 import Modal from '../Modal/Modal'
 
-const Card = ({ cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
+const Card = ({ yourCards, setYourCards, cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
     const [decide, setDecide] = useState(false)
     return (
         <>
@@ -33,7 +33,9 @@ const Card = ({ cardCount, setCardCount, dealercard, card, cardCounter, setDeale
                                 e.stopPropagation()
                                 if (cardCount[card] > 0) {
                                     let currentCards = { ...cardCount }
-                                    currentCards[dealercard] += 1
+                                    if (dealercard) {
+                                        currentCards[dealercard] += 1
+                                    }
                                     setDealercard(card)
                                     currentCards[card] -= 1
                                     setCardCount(currentCards)
@@ -46,6 +48,9 @@ const Card = ({ cardCount, setCardCount, dealercard, card, cardCounter, setDeale
                             if (cardCount[card] > 0) {
                                 let currentCards = { ...cardCount }
                                 currentCards[card] -= 1
+                                let yourCurrentCards = [...yourCards]
+                                yourCurrentCards.push(card)
+                                setYourCards(yourCurrentCards)
                                 setCardCount(currentCards)
                                 setDecide(false)
 
