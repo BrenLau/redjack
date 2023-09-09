@@ -91,16 +91,18 @@ const PlayingArea = () => {
     return (
         <div className='playingarea'>
             <DealerHand card={dealercard} clear={setDealercard} />
-            <div>
-                <input type='number' value={resetValue} onChange={(e) => {
-                    setResetValue(e.target.value)
+            <div className='resetdiv'>
+                <input className='resetinput' type='number' value={resetValue} onChange={(e) => {
+                    if (e.target.value > 0) {
+                        setResetValue(e.target.value)
+                    }
                 }}></input>
                 <button className='resetbutton' onClick={(e) => {
                     e.preventDefault()
                     setCurrentDeck(reset(resetValue))
                     setCardCount(cardCounter)
 
-                }}>Reset</button>
+                }}>Reset Deck</button>
             </div>
             <YourHand countHand={countHand} setYourCount={setYourCount} yourCount={yourCount} yourCards={yourCards} setYourCards={setYourCards} />
             <Deck setYourCount={setYourCount} cardCount={cardCount} yourCards={yourCards} setYourCards={setYourCards} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
