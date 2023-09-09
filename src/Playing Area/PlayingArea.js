@@ -5,8 +5,8 @@ import DealerHand from '../DealerHand/DealerHand'
 import YourHand from '../YourHand/YourHand'
 
 
-const defaultDeck = ['AS', 'AH', 'AC', 'AD', '2S', '2H', '2C', '2D', '3S', '3H', '3C', '3D', '4S', '4H', '4C', '4D', '5S', '5H', '5C', '5D', '6S', '6H', '6C', '6D', '7S', '7H', '7C', '7D', '8S', '8H', '8C', '8D', '9S', '9H', '9C', '9D', 'TS', 'TH', 'TC', 'TD', 'JS', 'JH', 'JC', 'JD', 'QS', 'QH', 'QC', 'QD', 'KS', 'KH', 'KC', 'KD']
-const cardCounter = {
+let defaultDeck = ['AS', 'AH', 'AC', 'AD', '2S', '2H', '2C', '2D', '3S', '3H', '3C', '3D', '4S', '4H', '4C', '4D', '5S', '5H', '5C', '5D', '6S', '6H', '6C', '6D', '7S', '7H', '7C', '7D', '8S', '8H', '8C', '8D', '9S', '9H', '9C', '9D', 'TS', 'TH', 'TC', 'TD', 'JS', 'JH', 'JC', 'JD', 'QS', 'QH', 'QC', 'QD', 'KS', 'KH', 'KC', 'KD']
+let cardCounter = {
     'AS': 5, 'AH': 5, 'AC': 5, 'AD': 5,
     '2S': 5, '2H': 5, '2C': 5, '2D': 5,
     '3S': 5, '3H': 5, '3C': 5, '3D': 5,
@@ -30,9 +30,11 @@ const reset = (decks) => {
         cardCounter[key] = decks
     }
 
+
     for (let i = 0; i < decks; i++) {
         deck = [...deck, ...defaultDeck]
     }
+
     return deck
 }
 
@@ -78,9 +80,10 @@ const PlayingArea = () => {
     const [yourCards, setYourCards] = useState([])
     const [yourCount, setYourCount] = useState(0)
 
+    const [resetValue, setResetValue] = useState(5)
 
     useEffect(() => {
-        reset(5)
+        reset(resetValue)
         setCurrentDeck(deck)
     }, [])
 
@@ -88,6 +91,17 @@ const PlayingArea = () => {
     return (
         <div className='playingarea'>
             <DealerHand card={dealercard} clear={setDealercard} />
+            <div>
+                <input type='number' value={resetValue} onChange={(e) => {
+                    setResetValue(e.target.value)
+                }}></input>
+                <button className='resetbutton' onClick={(e) => {
+                    e.preventDefault()
+                    setCurrentDeck(reset(resetValue))
+                    setCardCount(cardCounter)
+
+                }}>Reset</button>
+            </div>
             <YourHand countHand={countHand} setYourCount={setYourCount} yourCount={yourCount} yourCards={yourCards} setYourCards={setYourCards} />
             <Deck setYourCount={setYourCount} cardCount={cardCount} yourCards={yourCards} setYourCards={setYourCards} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
         </div>
