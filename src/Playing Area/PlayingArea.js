@@ -90,7 +90,7 @@ const PlayingArea = () => {
 
     return (
         <div className='playingarea'>
-            <DealerHand card={dealercard} clear={setDealercard} />
+            <DealerHand card={dealercard} cardCount={cardCount} />
             <div className='resetdiv'>
                 <input className='resetinput' type='number' value={resetValue} onChange={(e) => {
                     if (e.target.value > 0) {
