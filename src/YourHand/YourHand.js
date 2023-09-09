@@ -12,7 +12,7 @@ const YourHand = ({ yourCards, setYourCards, yourCount, countHand, setYourCount 
             <div className='yourcount'>{yourCount}</div>
             {yourCards.map(card => {
                 return (
-                    <Card card={card} />
+                    <Card noClick={true} card={card} />
                 )
             })}
         </div>

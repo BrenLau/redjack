@@ -6,7 +6,7 @@ import diamond from './suits/diamond.png'
 import { useState } from 'react'
 import Modal from '../Modal/Modal'
 
-const Card = ({ setYourCount, yourCards, setYourCards, cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
+const Card = ({ noClick, setYourCount, yourCards, setYourCards, cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
     const [decide, setDecide] = useState(false)
     return (
         <>
@@ -70,7 +70,7 @@ const Card = ({ setYourCount, yourCards, setYourCards, cardCount, setCardCount, 
                     </div>
                 </div>
             </Modal> : null}
-            <div className='card' onClick={(e) => {
+            <div className='card' onClick={noClick ? null : (e) => {
                 e.preventDefault()
                 e.stopPropagation()
                 if (cardCount[card] > 0) {
