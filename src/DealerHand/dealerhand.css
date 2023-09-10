@@ -4,4 +4,27 @@
     width: 50px;
     height: 100px;
     background-color: darkgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.approxodds {
+    background-color: beige;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+
+.dealerspot2 {
+    height: 100px;
+
 }

@@ -87,10 +87,8 @@ const PlayingArea = () => {
         setCurrentDeck(deck)
     }, [])
 
-
-    return (
-        <div className='playingarea'>
-            <DealerHand card={dealercard} cardCount={cardCount} />
+    const ResetButton = () => {
+        return (
             <div className='resetdiv'>
                 <input className='resetinput' type='number' value={resetValue} onChange={(e) => {
                     if (e.target.value > 0) {
@@ -104,6 +102,12 @@ const PlayingArea = () => {
 
                 }}>Reset Deck</button>
             </div>
+        )
+    }
+
+    return (
+        <div className='playingarea'>
+            <DealerHand card={dealercard} cardCount={cardCount} ResetButton={ResetButton} />
             <YourHand countHand={countHand} setYourCount={setYourCount} yourCount={yourCount} yourCards={yourCards} setYourCards={setYourCards} />
             <Deck setYourCount={setYourCount} cardCount={cardCount} yourCards={yourCards} setYourCards={setYourCards} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
         </div>

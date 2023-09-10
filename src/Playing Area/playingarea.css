@@ -9,10 +9,13 @@
 
 .resetdiv {
     display: flex;
-    width: 100%;
-    padding-left: 50px;
-    padding-top: 25px;
-    /* background-color: aliceblue; */
+    width: 200px;
+    /* align-items: center; */
+    /* margin-top: 25px; */
+    position: relative;
+    top: 35px;
+    justify-content: center;
+    padding-top: 5px;
 }
 
 
