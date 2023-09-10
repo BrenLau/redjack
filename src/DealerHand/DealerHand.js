@@ -25,11 +25,9 @@ const DealerHand = ({ card, cardCount }) => {
     const calcOdds = (start, aces, twos, threes, fours, fives, sixes, sevens, eights, nines, tens, total) => {
 
         let count = 0
-        let acess = 0
         if (start === 'J' || start === 'Q' || start === 'K' || start === 'T') {
             count += 10
         } else if (start === 'A') {
-            acess += 1
             count += 1
         } else {
             count += Number(start)
@@ -40,7 +38,6 @@ const DealerHand = ({ card, cardCount }) => {
         let odds19 = 0
         let odds20 = 0
         let odds21 = 0
-        let bust = 0
 
         for (let i = 1; i <= 10; i++) {
             let imaginaryCount = count
@@ -93,7 +90,7 @@ const DealerHand = ({ card, cardCount }) => {
                 }
             }
 
-            for (let x = 1; x <= 9; x++) {
+            for (let x = 1; x <= 10; x++) {
                 let secNum = x === 10 ? iTens : x === 9 ? iNines : x === 8 ? iEights : x === 7 ? iSevens : x === 6 ? iSixes : x === 5 ? iFives : x === 4 ? iFours : x === 3 ? iThrees : x === 2 ? iTwos : iAces
                 if (imaginaryCount + i + x == 17) {
                     odds17 += (num / iTotal) * (secNum / (iTotal - 1))
@@ -129,7 +126,7 @@ const DealerHand = ({ card, cardCount }) => {
                     }
                 }
 
-                for (let y = 1; y <= 8; y++) {
+                for (let y = 1; y <= 9; y++) {
                     let thirdNum = y === 10 ? iTens : y === 9 ? iNines : y === 8 ? iEights : y === 7 ? iSevens : y === 6 ? iSixes : y === 5 ? iFives : y === 4 ? iFours : y === 3 ? iThrees : y === 2 ? iTwos : iAces
                     if (imaginaryCount + i + x + y == 17) {
                         odds17 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2))
@@ -165,7 +162,7 @@ const DealerHand = ({ card, cardCount }) => {
                         }
                     }
 
-                    for (let b = 7; b > 0; b--) {
+                    for (let b = 8; b > 0; b--) {
                         let fourthNum = b === 10 ? iTens : b === 9 ? iNines : b === 8 ? iEights : b === 7 ? iSevens : b === 6 ? iSixes : b === 5 ? iFives : b === 4 ? iFours : b === 3 ? iThrees : b === 2 ? iTwos : iAces
                         if (imaginaryCount + i + x + y + b == 17) {
                             odds17 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3))
@@ -184,7 +181,7 @@ const DealerHand = ({ card, cardCount }) => {
                             continue;
                         }
 
-                        for (let c = 6; c > 0; c--) {
+                        for (let c = 7; c > 0; c--) {
                             let fifthNum = c === 10 ? iTens : c === 9 ? iNines : c === 8 ? iEights : c === 7 ? iSevens : c === 6 ? iSixes : c === 5 ? iFives : c === 4 ? iFours : c === 3 ? iThrees : c === 2 ? iTwos : iAces
                             if (imaginaryCount + i + x + y + b + c == 17) {
                                 odds17 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4))
@@ -203,7 +200,7 @@ const DealerHand = ({ card, cardCount }) => {
                                 continue;
                             }
 
-                            for (let d = 5; d > 0; d--) {
+                            for (let d = 6; d > 0; d--) {
                                 let sixthNum = d === 10 ? iTens : d === 9 ? iNines : d === 8 ? iEights : d === 7 ? iSevens : d === 6 ? iSixes : d === 5 ? iFives : d === 4 ? iFours : d === 3 ? iThrees : d === 2 ? iTwos : iAces
                                 if (imaginaryCount + i + x + y + b + c + d == 17) {
                                     odds17 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4)) * (sixthNum / (iTotal - 5))
@@ -222,7 +219,7 @@ const DealerHand = ({ card, cardCount }) => {
                                     continue;
                                 }
 
-                                for (let e = 4; e > 0; e--) {
+                                for (let e = 5; e > 0; e--) {
                                     let seventhNum = e === 10 ? iTens : e === 9 ? iNines : e === 8 ? iEights : e === 7 ? iSevens : e === 6 ? iSixes : e === 5 ? iFives : e === 4 ? iFours : e === 3 ? iThrees : e === 2 ? iTwos : iAces
                                     if (imaginaryCount + i + x + y + b + c + d + e == 17) {
                                         odds17 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6))
@@ -240,7 +237,7 @@ const DealerHand = ({ card, cardCount }) => {
                                         odds21 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6))
                                         continue;
                                     }
-                                    for (let f = 3; f > 0; f--) {
+                                    for (let f = 4; f > 0; f--) {
                                         let eightNum = f === 10 ? iTens : f === 9 ? iNines : f === 8 ? iEights : f === 7 ? iSevens : f === 6 ? iSixes : f === 5 ? iFives : f === 4 ? iFours : f === 3 ? iThrees : f === 2 ? iTwos : iAces
                                         if (imaginaryCount + i + x + y + b + c + d + e + f == 17) {
                                             odds17 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7))
@@ -252,7 +249,7 @@ const DealerHand = ({ card, cardCount }) => {
                                             odds19 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7))
                                             continue;
                                         }
-                                        for (let g = 2; g > 0; g--) {
+                                        for (let g = 3; g > 0; g--) {
                                             let ninthNum = g === 10 ? iTens : g === 9 ? iNines : g === 8 ? iEights : g === 7 ? iSevens : g === 6 ? iSixes : g === 5 ? iFives : g === 4 ? iFours : g === 3 ? iThrees : g === 2 ? iTwos : iAces
                                             if (imaginaryCount + i + x + y + b + c + d + e + f + g == 17) {
                                                 odds17 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
@@ -261,7 +258,7 @@ const DealerHand = ({ card, cardCount }) => {
                                                 odds18 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
                                                 continue;
                                             }
-                                            for (let h = 1; h > 0; h--) {
+                                            for (let h = 2; h > 0; h--) {
                                                 let tenthNum = h === 10 ? iTens : h === 9 ? iNines : h === 8 ? iEights : h === 7 ? iSevens : h === 6 ? iSixes : h === 5 ? iFives : h === 4 ? iFours : h === 3 ? iThrees : h === 2 ? iTwos : iAces
                                                 if (imaginaryCount + i + x + y + b + c + d + e + f + g + h == 17) {
                                                     odds17 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * (fifthNum / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
@@ -295,7 +292,8 @@ const DealerHand = ({ card, cardCount }) => {
     }
 
 
-    calcOdds(card[0], Number(aceCount), Number(twoCount), Number(threeCount), Number(fourCount), Number(fiveCount), Number(sixCount), Number(sevenCount), Number(eightCount), Number(nineCount), Number(tenCount), totalCount)
+
+    calcOdds(card[0], Number(aceCount), Number(twoCount), Number(threeCount), Number(fourCount), Number(fiveCount), Number(sixCount), Number(sevenCount), Number(eightCount), Number(nineCount), Number(tenCount), totalCount, 17)
 
 
 
@@ -303,20 +301,20 @@ const DealerHand = ({ card, cardCount }) => {
     return (
         <div className='dealerspot'>
             {card ? <Card card={card} noClick={true} /> : null}
-            <div className='approxodds'>Approximate Odds:
-                <div>17: {odds.odds17}
+            {card ? <div className='approxodds'>Approximate Odds:
+                <div className='approxnum'>{`17: ${odds.odds17}`}
                 </div>
-                <div>18: {odds.odds18}
+                <div className='approxnum'>{`18: ${odds.odds18}`}
                 </div>
-                <div>19: {odds.odds19}
+                <div className='approxnum'>{`19: ${odds.odds19}`}
                 </div>
-                <div>20: {odds.odds20}
+                <div className='approxnum'>{`20: ${odds.odds20}`}
                 </div>
-                <div>21: {odds.odds21}
+                <div className='approxnum'>{`21: ${odds.odds21}`}
                 </div>
-                <div>Bust: {(1 - (odds.odds17) - (odds.odds18) - (odds.odds19) - (odds.odds20) - (odds.odds21)).toFixed(3)}
+                <div className='approxnum'>{`Bust: ${(1 - (odds.odds17) - (odds.odds18) - (odds.odds19) - (odds.odds20) - (odds.odds21)).toFixed(3)}`}
                 </div>
-            </div>
+            </div> : null}
         </div>
     )
 }
