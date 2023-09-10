@@ -128,9 +128,7 @@ const DealerHand = ({ card, cardCount }) => {
                         continue;
                     }
                 }
-                //  else if (imaginaryCount + i + x > 21) {
-                //     bust += (num / iTotal) * (secNum / (iTotal - 1))
-                // }
+
                 for (let y = 1; y <= 8; y++) {
                     let thirdNum = y === 10 ? iTens : y === 9 ? iNines : y === 8 ? iEights : y === 7 ? iSevens : y === 6 ? iSixes : y === 5 ? iFives : y === 4 ? iFours : y === 3 ? iThrees : y === 2 ? iTwos : iAces
                     if (imaginaryCount + i + x + y == 17) {
@@ -185,6 +183,7 @@ const DealerHand = ({ card, cardCount }) => {
                             odds21 += (num / iTotal) * (secNum / (iTotal - 1)) * (thirdNum / (iTotal - 2)) * (fourthNum / (iTotal - 3))
                             continue;
                         }
+
                         for (let c = 6; c > 0; c--) {
                             let fifthNum = c === 10 ? iTens : c === 9 ? iNines : c === 8 ? iEights : c === 7 ? iSevens : c === 6 ? iSixes : c === 5 ? iFives : c === 4 ? iFours : c === 3 ? iThrees : c === 2 ? iTwos : iAces
                             if (imaginaryCount + i + x + y + b + c == 17) {
@@ -279,7 +278,6 @@ const DealerHand = ({ card, cardCount }) => {
             }
 
         }
-        // console.log(odds17, odds18, odds19, odds20, odds21, odds17 + odds18 + odds19 + odds20 + odds21)
 
         return {
             odds17: Number(odds17).toFixed(3),
