@@ -99,7 +99,7 @@ const PlayingArea = () => {
                 }}></input>
                 <button className='resetbutton' onClick={(e) => {
                     e.preventDefault()
-                    setCurrentDeck(reset(resetValue))
+                    setCurrentDeck(reset(Number(resetValue)))
                     setCardCount(cardCounter)
 
                 }}>Reset Deck</button>
