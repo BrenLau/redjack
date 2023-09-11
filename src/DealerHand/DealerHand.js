@@ -24,13 +24,13 @@ const DealerHand = ({ card, cardCount, ResetButton }) => {
 
     const calcOdds = (start, iAces, iTwos, iThrees, iFours, iFives, iSixes, iSevens, iEights, iNines, iTens, iTotal) => {
 
-        let count = 0
+        let imaginaryCount = 0
         if (start === 'J' || start === 'Q' || start === 'K' || start === 'T') {
-            count += 10
+            imaginaryCount += 10
         } else if (start === 'A') {
-            count += 1
+            imaginaryCount += 1
         } else {
-            count += Number(start)
+            imaginaryCount += Number(start)
         }
 
         let odds17 = 0
@@ -40,7 +40,6 @@ const DealerHand = ({ card, cardCount, ResetButton }) => {
         let odds21 = 0
 
         for (let i = 1; i <= 10; i++) {
-            let imaginaryCount = count
 
             let num = i === 10 ? iTens : i === 9 ? iNines : i === 8 ? iEights : i === 7 ? iSevens : i === 6 ? iSixes : i === 5 ? iFives : i === 4 ? iFours : i === 3 ? iThrees : i === 2 ? iTwos : iAces
 
