@@ -62,7 +62,8 @@ const YourHand = ({ cardCount, yourCards, setYourCards, yourCount, countHand, se
 
     return (
         <div className='yourhand'>
-            <div className='yourcount'>{yourCount} --- BustOdds: {bustOdds.toFixed(2)}</div>
+            <div className='yourcount'>{yourCount} </div>
+            <div className='youroddsofbusting'>Odds of Busting: {(bustOdds.toFixed(2)) * 100}%</div>
             {yourCards.map(card => {
                 return (
                     <Card noClick={true} card={card} />
