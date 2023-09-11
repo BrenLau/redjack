@@ -2,7 +2,7 @@ import './yourhand.css'
 import Card from '../Card/Card'
 import { useEffect, useState } from 'react'
 
-const YourHand = ({ cardCount, yourCards, setYourCards, yourCount, countHand, setYourCount }) => {
+const YourHand = ({ clear, cardCount, yourCards, setYourCards, yourCount, countHand, setYourCount }) => {
 
     const [aceCount, setAceCount] = useState()
     const [twoCount, setTwoCount] = useState()
@@ -62,7 +62,9 @@ const YourHand = ({ cardCount, yourCards, setYourCards, yourCount, countHand, se
 
     return (
         <div className='yourhand'>
-            <div className='yourcount'>{yourCount} </div>
+            <button className='clearboard' onClick={clear}>Clear Board</button>
+
+            <div className='yourcount'>Your Hand: {yourCount} </div>
             <div className='youroddsofbusting'>Odds of Busting: {(bustOdds.toFixed(2)) * 100}%</div>
             {yourCards.map(card => {
                 return (
