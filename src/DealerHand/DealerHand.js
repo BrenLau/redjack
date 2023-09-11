@@ -19,6 +19,8 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
     useEffect(() => {
         if (card) {
             setOdds(calcOdds(card[0], Number(aceCount), Number(twoCount), Number(threeCount), Number(fourCount), Number(fiveCount), Number(sixCount), Number(sevenCount), Number(eightCount), Number(nineCount), Number(tenCount), totalCount))
+            // setOdds(calcsOdds(card[0], Number(aceCount), Number(twoCount), Number(threeCount), Number(fourCount), Number(fiveCount), Number(sixCount), Number(sevenCount), Number(eightCount), Number(nineCount), Number(tenCount), totalCount, 17)
+
         }
     }, [card, cardCount])
 
@@ -451,7 +453,6 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
             }
 
         }
-
         return {
             odds17: Number(odds17).toFixed(3),
             odds18: Number(odds18).toFixed(3),
@@ -459,17 +460,178 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
             odds20: Number(odds20).toFixed(3),
             odds21: Number(odds21).toFixed(3),
         }
-
-
-
-
-
-
     }
 
+    // const sum = (array) => {
+    //     let res = 0
+    //     for (let num of array) {
+    //         res += num
+    //     }
+    //     return res
+    // }
 
 
-    calcOdds(card[0], Number(aceCount), Number(twoCount), Number(threeCount), Number(fourCount), Number(fiveCount), Number(sixCount), Number(sevenCount), Number(eightCount), Number(nineCount), Number(tenCount), totalCount, 17)
+    // const calcsOdds = (start, iAces, iTwos, iThrees, iFours, iFives, iSixes, iSevens, iEights, iNines, iTens, iTotal) => {
+    //     let imaginaryCount = 0
+    //     if (start === 'J' || start === 'Q' || start === 'K' || start === 'T') {
+    //         imaginaryCount += 10
+    //     } else if (start === 'A') {
+    //         imaginaryCount += 1
+    //     } else {
+    //         imaginaryCount += Number(start)
+    //     }
+    //     let odds17 = 0
+    //     let odds18 = 0
+    //     let odds19 = 0
+    //     let odds20 = 0
+    //     let odds21 = 0
+
+    //     for (let i = 10; i > 0; i--) {
+    //         let aces = (i === 1) || (start === 'A') ? true : false
+    //         let counter = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0 }
+    //         let count = imaginaryCount
+    //         let num = i === 10 ? iTens : i === 9 ? iNines : i === 8 ? iEights : i === 7 ? iSevens : i === 6 ? iSixes : i === 5 ? iFives : i === 4 ? iFours : i === 3 ? iThrees : i === 2 ? iTwos : iAces
+
+
+    //         if ((counter[i] >= num)) {
+    //             continue;
+    //         } else {
+    //             if (count + i === 17) {
+    //                 odds17 += (num / iTotal)
+    //                 continue;
+    //             } else if (count + i === 18) {
+    //                 odds18 += (num / iTotal)
+    //                 continue;
+    //             } else if (count + i === 19) {
+    //                 odds19 += (num / iTotal)
+    //                 continue;
+    //             } else if (count + i === 20) {
+    //                 odds20 += (num / iTotal)
+    //                 continue;
+    //             } else if (count + i === 21) {
+    //                 odds21 += (num / iTotal)
+    //                 continue;
+    //             } else if (aces) {
+    //                 if (count + i + 10 === 17) {
+    //                     odds17 += (num / iTotal)
+    //                     continue;
+    //                 } else if (count + i + 10 === 18) {
+    //                     odds18 += (num / iTotal)
+    //                     continue;
+    //                 } else if (count + i + 10 === 19) {
+    //                     odds19 += (num / iTotal)
+    //                     continue;
+    //                 } else if (count + i + 10 === 20) {
+    //                     odds20 += (num / iTotal)
+    //                     continue;
+    //                 } else if (count + i + 10 === 21) {
+    //                     odds21 += (num / iTotal)
+    //                     continue;
+    //                 }
+    //             }
+    //             counter[i]--
+    //         }
+
+    //         let nums = [i]
+    //         counter[i]++
+
+    //         const addProb = (nums) => {
+    //             let current = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, total: 0 }
+    //             let prob = 0
+
+    //             for (let num of nums) {
+
+    //                 let card = num === 10 ? iTens : num === 9 ? iNines : num === 8 ? iEights : num === 7 ? iSevens : num === 6 ? iSixes : num === 5 ? iFives : num === 4 ? iFours : num === 3 ? iThrees : num === 2 ? iTwos : iAces
+    //                 if (prob === 0) {
+    //                     prob = (card / iTotal)
+    //                     current[num]++
+    //                     current['total']++
+    //                 } else {
+    //                     prob *= ((card - current[num]) / (iTotal - current['total']))
+    //                     current[num]++
+    //                     current['total']++
+    //                 }
+    //             }
+    //             console.log(prob.toFixed(3), nums)
+    //             return Number(prob.toFixed(3))
+    //         }
+    //         const replaceCounter = { ...counter }
+
+    //         for (let x = 10; x > 0; x) {
+    //             console.log(x)
+    //             if (nums.length > 5) {
+    //                 nums = [i]
+
+    //                 counter = { ...replaceCounter }
+    //                 continue
+    //             }
+    //             aces = (i === 1) || (start === 'A') || (nums.includes(1) || x === 1)
+
+    //             let num = x === 10 ? iTens : x === 9 ? iNines : x === 8 ? iEights : x === 7 ? iSevens : x === 6 ? iSixes : x === 5 ? iFives : x === 4 ? iFours : x === 3 ? iThrees : x === 2 ? iTwos : iAces
+
+    //             if ((counter[x] >= num) || (count + sum(nums) > 21)) {
+    //                 nums = [i]
+    //                 counter = { ...replaceCounter }
+    //                 continue;
+    //             } else if ((count + sum(nums) + x === 17) || (aces && (count + sum(nums) + x + 10 === 17))) {
+    //                 nums.push(x)
+    //                 counter[x]++
+    //                 nums.pop()
+    //                 x--
+    //                 odds17 += addProb(nums)
+    //                 continue;
+    //             } else if ((count + sum(nums) + x === 18) || (aces && (count + sum(nums) + x + 10 === 17))) {
+    //                 nums.push(x)
+    //                 odds18 += addProb(nums)
+    //                 nums.pop()
+    //                 x--;
+    //                 continue;
+    //             } else if ((count + sum(nums) + x === 19) || (aces && (count + sum(nums) + x + 10 === 17))) {
+    //                 nums.push(x)
+    //                 odds19 += addProb(nums)
+    //                 nums.pop()
+    //                 x--;
+    //                 continue;
+    //             } else if ((count + sum(nums) + x === 20) || (aces && (count + sum(nums) + x + 10 === 17))) {
+    //                 nums.push(x)
+    //                 odds20 += addProb(nums)
+    //                 nums.pop()
+    //                 x--;
+    //                 continue;
+    //             } else if ((count + sum(nums) + x === 21) || (aces && (count + sum(nums) + x + 10 === 17))) {
+    //                 nums.push(x)
+    //                 // counter[x]++
+    //                 odds21 += addProb(nums)
+    //                 nums.pop()
+    //                 x--;
+    //                 continue;
+    //             } else if ((count + sum(nums) + x < 17)) {
+    //                 nums.push(x)
+    //                 counter[x]++
+    //                 x--
+    //                 continue;
+    //             } break;
+
+    //         }
+    //     }
+    //     return {
+    //         odds17: Number(odds17).toFixed(3),
+    //         odds18: Number(odds18).toFixed(3),
+    //         odds19: Number(odds19).toFixed(3),
+    //         odds20: Number(odds20).toFixed(3),
+    //         odds21: Number(odds21).toFixed(3),
+    //     }
+    //     // console.log('17: ', odds17)
+    //     // console.log('18: ', odds18)
+    //     // console.log('19: ', odds19)
+    //     // console.log('20: ', odds20)
+    //     // console.log('21: ', odds21)
+
+
+    // }
+
+    // calcOdds(card[0], Number(aceCount), Number(twoCount), Number(threeCount), Number(fourCount), Number(fiveCount), Number(sixCount), Number(sevenCount), Number(eightCount), Number(nineCount), Number(tenCount), totalCount, 17)
+    // calcsOdds(card[0], Number(aceCount), Number(twoCount), Number(threeCount), Number(fourCount), Number(fiveCount), Number(sixCount), Number(sevenCount), Number(eightCount), Number(nineCount), Number(tenCount), totalCount, 17)
 
 
 
