@@ -1,5 +1,4 @@
 import './deck.css'
-import { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 
 const Deck = ({ setYourCount, yourCards, setYourCards, cardCount, setCardCount, dealercard, setDealercard, defaultDeck, cardCounter, setCurrentDeck, reset, currentDeck }) => {

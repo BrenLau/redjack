@@ -57,7 +57,7 @@ const YourHand = ({ cardCount, yourCards, setYourCards, yourCount, countHand, se
             setBustOdds((tenCount / totalCount) + (nineCount / totalCount) + (eightCount / totalCount) + (sevenCount / totalCount) + (sixCount / totalCount) + (fiveCount / totalCount) + (fourCount / totalCount) + (threeCount / totalCount) + (threeCount / totalCount))
         }
 
-    }, [yourCards, cardCount, yourCount])
+    }, [yourCards, yourCount])
 
 
     return (

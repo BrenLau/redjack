@@ -45,7 +45,7 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
         let odds20 = 0
         let odds21 = 0
 
-        for (let i = 10; i > 0; i--) {
+        for (let i = 1; i <= 10; i++) {
 
             let num = i === 10 ? iTens : i === 9 ? iNines : i === 8 ? iEights : i === 7 ? iSevens : i === 6 ? iSixes : i === 5 ? iFives : i === 4 ? iFours : i === 3 ? iThrees : i === 2 ? iTwos : iAces
             if (num <= 0) continue;
@@ -89,7 +89,7 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
                     dups1++
                 }
                 let secNum = x === 10 ? iTens : x === 9 ? iNines : x === 8 ? iEights : x === 7 ? iSevens : x === 6 ? iSixes : x === 5 ? iFives : x === 4 ? iFours : x === 3 ? iThrees : x === 2 ? iTwos : iAces
-                if (secNum - dups1 <= 0) continue
+                if (secNum - dups1 <= 0) continue;
                 if (imaginaryCount + i + x === 17) {
                     odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1))
                     continue;
@@ -249,7 +249,7 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
                             } else if (imaginaryCount + i + x + y + b + c === 21) {
                                 odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4))
                                 continue;
-                            } else if ((imaginaryCount + i + x + y + c < 17) && (imaginaryCount === 1 || i === 1 || x === 1 || y === 1 || b === 1)) {
+                            } else if ((imaginaryCount + i + x + y + c < 17) && (imaginaryCount === 1 || i === 1 || x === 1 || y === 1 || b === 1) || c === 1) {
                                 if (imaginaryCount + i + x + y + b + c + 10 === 17) {
                                     odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4))
                                     continue;
@@ -303,27 +303,27 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
                                 } else if (imaginaryCount + i + x + y + b + c + d === 21) {
                                     odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * ((sixthNum - dups5) / (iTotal - 5))
                                     continue;
-                                } else if ((imaginaryCount + i + x + y < 17) && (imaginaryCount === 1 || i === 1 || x === 1 || y === 1 || b === 1)) {
-                                    if (imaginaryCount + i + x + y + b + c + 10 === 17) {
+                                } else if ((imaginaryCount + i + x + y + b + c + d < 17) && (imaginaryCount === 1 || i === 1 || x === 1 || y === 1 || b === 1) || c === 1 || d === 1) {
+                                    if (imaginaryCount + i + x + y + b + c + d + 10 === 17) {
                                         odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * ((sixthNum - dups5) / (iTotal - 5))
                                         continue;
-                                    } else if (imaginaryCount + i + x + y + b + c + 10 === 18) {
+                                    } else if (imaginaryCount + i + x + y + b + c + d + 10 === 18) {
                                         odds18 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * ((sixthNum - dups5) / (iTotal - 5))
                                         continue;
-                                    } else if (imaginaryCount + i + x + y + b + c + 10 === 19) {
+                                    } else if (imaginaryCount + i + x + y + b + c + d + 10 === 19) {
                                         odds19 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * ((sixthNum - dups5) / (iTotal - 5))
                                         continue;
-                                    } else if (imaginaryCount + i + x + y + b + c + 10 === 20) {
+                                    } else if (imaginaryCount + i + x + y + b + c + d + 10 === 20) {
                                         odds20 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * ((sixthNum - dups5) / (iTotal - 5))
                                         continue;
-                                    } else if (imaginaryCount + i + x + y + b + c + 10 === 21) {
+                                    } else if (imaginaryCount + i + x + y + b + c + d + 10 === 21) {
                                         odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * ((sixthNum - dups5) / (iTotal - 5))
                                         continue;
                                     }
                                 }
 
 
-                                for (let e = 1; e <= 5; e++) {
+                                for (let e = 1; e <= 6; e++) {
                                     let dups6 = 0
                                     if (i === e) {
                                         dups6++
@@ -362,7 +362,7 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
                                         odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6))
                                         continue;
                                     }
-                                    for (let f = 1; f <= 4; f++) {
+                                    for (let f = 1; f <= 6; f++) {
                                         let dups7 = 0
                                         if (i === f) {
                                             dups7++
@@ -404,7 +404,7 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
                                             odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7))
                                             continue;
                                         }
-                                        for (let g = 1; g <= 5; g++) {
+                                        for (let g = 1; g <= 6; g++) {
                                             let ninthNum = g === 10 ? iTens : g === 9 ? iNines : g === 8 ? iEights : g === 7 ? iSevens : g === 6 ? iSixes : g === 5 ? iFives : g === 4 ? iFours : g === 3 ? iThrees : g === 2 ? iTwos : iAces
                                             if (imaginaryCount + i + x + y + b + c + d + e + f + g === 17) {
                                                 odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
@@ -422,7 +422,7 @@ const DealerHand = ({ card, cardCount, ResetButton, countHand, yourCards }) => {
                                                 odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
                                                 continue;
                                             }
-                                            for (let h = 1; h <= 5; h++) {
+                                            for (let h = 1; h <= 6; h++) {
                                                 let tenthNum = h === 10 ? iTens : h === 9 ? iNines : h === 8 ? iEights : h === 7 ? iSevens : h === 6 ? iSixes : h === 5 ? iFives : h === 4 ? iFours : h === 3 ? iThrees : h === 2 ? iTwos : iAces
                                                 if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 17) {
                                                     odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
