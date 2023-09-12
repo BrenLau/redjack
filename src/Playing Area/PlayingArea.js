@@ -3,6 +3,7 @@ import Deck from '../Deck/Deck'
 import { useState, useEffect } from 'react'
 import DealerHand from '../DealerHand/DealerHand'
 import YourHand from '../YourHand/YourHand'
+import { calculatePairs } from './sidebets'
 
 
 let defaultDeck = ['AS', 'AH', 'AC', 'AD', '2S', '2H', '2C', '2D', '3S', '3H', '3C', '3D', '4S', '4H', '4C', '4D', '5S', '5H', '5C', '5D', '6S', '6H', '6C', '6D', '7S', '7H', '7C', '7D', '8S', '8H', '8C', '8D', '9S', '9H', '9C', '9D', 'TS', 'TH', 'TC', 'TD', 'JS', 'JH', 'JC', 'JD', 'QS', 'QH', 'QC', 'QD', 'KS', 'KH', 'KC', 'KD']
