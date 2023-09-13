@@ -1,0 +1,12 @@
+.spacer {
+    height: 40px;
+}
+
+.sidebets {
+    width: 200px;
+    height: 300px;
+    background-color: darkgreen;
+    border: rgba(0, 0, 0, .4) 1px solid;
+    border-radius: 5px;
+
+}
