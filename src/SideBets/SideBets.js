@@ -1,6 +1,6 @@
 import './sidebets.css'
 
-const SideBets = ({ pairs }) => {
+const SideBets = ({ pairs, trios }) => {
     return (
 
         <>
@@ -8,6 +8,7 @@ const SideBets = ({ pairs }) => {
             <div className="sidebets">
                 <h2>Side Bet Odds</h2>
                 <div>Pairs: {pairs.toFixed(3)}</div>
+                <div>Trios: {trios.toFixed(3)}</div>
             </div>
         </>
     )

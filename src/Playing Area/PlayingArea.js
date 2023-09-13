@@ -85,11 +85,16 @@ const PlayingArea = () => {
     const [resetValue, setResetValue] = useState(5)
 
     const [pairs, setPairs] = useState(calculatePairs(cardCount))
+    const [trios, setTrios] = useState(calculateTrios(cardCount))
 
     useEffect(() => {
         reset(resetValue)
         setCurrentDeck(deck)
     }, [])
+    useEffect(() => {
+        setPairs(calculatePairs(cardCount))
+        setTrios(calculateTrios(cardCount))
+    }, [cardCount])
 
     const clear = () => {
         setYourCount(0)
@@ -117,7 +122,7 @@ const PlayingArea = () => {
     return (
         <div className='playingarea'>
             <DealerHand countHand={countHand} yourCards={yourCards} card={dealercard} cardCount={cardCount} ResetButton={ResetButton} />
-            <SideBets pairs={pairs} />
+            <SideBets pairs={pairs} trios={trios} />
             <YourHand clear={clear} cardCount={cardCount} countHand={countHand} setYourCount={setYourCount} yourCount={yourCount} yourCards={yourCards} setYourCards={setYourCards} />
             <Deck setYourCount={setYourCount} cardCount={cardCount} yourCards={yourCards} setYourCards={setYourCards} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
         </div>
