@@ -62,13 +62,13 @@ export const calculateFlush = (cardCount) => {
     let totalCount = 0
 
     for (let key in cardCount) {
-        if (key[2] === 'H') {
+        if (key[1] === 'H') {
             heartCount += cardCount[key]
-        } else if (key[2] === 'S') {
+        } else if (key[1] === 'S') {
             spadeCount += cardCount[key]
-        } else if (key[3] === 'C') {
+        } else if (key[1] === 'C') {
             clubCount += cardCount[key]
-        } else if (key[4] === 'D') {
+        } else if (key[1] === 'D') {
             diamondCount += cardCount[key]
         }
         totalCount += cardCount[key]
