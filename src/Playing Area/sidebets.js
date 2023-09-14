@@ -53,3 +53,32 @@ export const calculateTrios = (cardCount) => {
 
     return prob
 }
+
+export const calculateFlush = (cardCount) => {
+    let heartCount = 0
+    let spadeCount = 0
+    let clubCount = 0
+    let diamondCount = 0
+    let totalCount = 0
+
+    for (let key in cardCount) {
+        if (key[2] === 'H') {
+            heartCount += cardCount[key]
+        } else if (key[2] === 'S') {
+            spadeCount += cardCount[key]
+        } else if (key[3] === 'C') {
+            clubCount += cardCount[key]
+        } else if (key[4] === 'D') {
+            diamondCount += cardCount[key]
+        }
+        totalCount += cardCount[key]
+    }
+
+    let prob = 0
+    prob += ((heartCount / totalCount) * ((heartCount - 1) / (totalCount - 2)) * ((heartCount - 2) / (totalCount - 2)))
+    prob += ((spadeCount / totalCount) * ((spadeCount - 1) / (totalCount - 2)) * ((spadeCount - 2) / (totalCount - 2)))
+    prob += ((clubCount / totalCount) * ((clubCount - 1) / (totalCount - 2)) * ((clubCount - 2) / (totalCount - 2)))
+    prob += ((diamondCount / totalCount) * ((diamondCount - 1) / (totalCount - 2)) * ((diamondCount - 2) / (totalCount - 2)))
+
+    return prob
+}
