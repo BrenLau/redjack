@@ -7,10 +7,10 @@ const SideBets = ({ pairs, trios, flush, straight }) => {
             <div className='spacer'></div>
             <div className="sidebets">
                 <h2>Side Bet Odds</h2>
-                <div>Pairs: {pairs.toFixed(3) % 100}%</div>
-                <div>Trios: {trios.toFixed(3) * 100}%</div>
-                <div>Flush: {flush.toFixed(3) * 100}%</div>
-                <div>Straight: {straight.toFixed(3) * 100}%</div>
+                <div>Pairs: {(pairs * 100).toFixed(3)}%</div>
+                <div>Trios: {(trios * 100).toFixed(3)}%</div>
+                <div>Flush: {(flush * 100).toFixed(3)}%</div>
+                <div>Straight: {(straight * 100).toFixed(3)}%</div>
             </div>
         </>
     )

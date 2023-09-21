@@ -22,7 +22,6 @@ export const calculatePairs = (cardCount) => {
     prob += ((eightCount / totalCount) * ((eightCount - 1) / (totalCount - 1)))
     prob += ((nineCount / totalCount) * ((nineCount - 1) / (totalCount - 1)))
     prob += ((tenCount / totalCount) * ((tenCount - 1) / (totalCount - 1)))
-
     return prob
 }
 
@@ -109,6 +108,18 @@ export const calculateStraight = (cardCount) => {
 
         prob += (counts[x] / totalCount) * ((counts[y]) / (totalCount - 1)) * (counts[z] / (totalCount - 2))
 
+    }
+    return prob
+}
+
+export const calculatePerfectPairs = (cardCount) => {
+    let total = 0
+    let prob = 0
+    for (let key in cardCount) {
+        total += cardCount[key]
+    }
+    for (let key in cardCount) {
+        prob += (cardCount[key] / total) * ((cardCount[key] - 1) / total)
     }
     return prob
 }

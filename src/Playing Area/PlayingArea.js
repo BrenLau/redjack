@@ -3,7 +3,7 @@ import Deck from '../Deck/Deck'
 import { useState, useEffect } from 'react'
 import DealerHand from '../DealerHand/DealerHand'
 import YourHand from '../YourHand/YourHand'
-import { calculatePairs, calculateTrios, calculateFlush, calculateStraight } from './sidebets'
+import { calculatePairs, calculateTrios, calculateFlush, calculateStraight, calculatePerfectPairs } from './sidebets'
 import SideBets from '../SideBets/SideBets'
 
 
@@ -88,6 +88,7 @@ const PlayingArea = () => {
     const [trios, setTrios] = useState(calculateTrios(cardCount))
     const [flush, setFlush] = useState(calculateFlush(cardCount))
     const [straight, setStraight] = useState(calculateStraight(cardCount))
+    const [perfectPair, setPerfectPair] = useState(calculatePerfectPairs(cardCount))
 
 
     useEffect(() => {
