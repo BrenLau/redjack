@@ -109,7 +109,6 @@ export const calculateStraight = (cardCount) => {
 
         prob += (counts[x] / totalCount) * ((counts[y]) / (totalCount - 1)) * (counts[z] / (totalCount - 2))
 
-
     }
     return prob
 }

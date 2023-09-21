@@ -98,6 +98,7 @@ const PlayingArea = () => {
         setPairs(calculatePairs(cardCount))
         setTrios(calculateTrios(cardCount))
         setFlush(calculateFlush(cardCount))
+        setStraight(calculateStraight(cardCount))
     }, [cardCount])
 
     const clear = () => {
@@ -126,7 +127,7 @@ const PlayingArea = () => {
     return (
         <div className='playingarea'>
             <DealerHand countHand={countHand} yourCards={yourCards} card={dealercard} cardCount={cardCount} ResetButton={ResetButton} />
-            <SideBets pairs={pairs} trios={trios} flush={flush} />
+            <SideBets straight={straight} pairs={pairs} trios={trios} flush={flush} />
             <YourHand clear={clear} cardCount={cardCount} countHand={countHand} setYourCount={setYourCount} yourCount={yourCount} yourCards={yourCards} setYourCards={setYourCards} />
             <Deck setYourCount={setYourCount} cardCount={cardCount} yourCards={yourCards} setYourCards={setYourCards} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} defaultDeck={defaultDeck} cardCounter={cardCounter} currentDeck={currentDeck} setCurrentDeck={setCurrentDeck} reset={reset} />
         </div>

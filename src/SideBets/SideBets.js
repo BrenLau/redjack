@@ -1,6 +1,6 @@
 import './sidebets.css'
 
-const SideBets = ({ pairs, trios, flush }) => {
+const SideBets = ({ pairs, trios, flush, straight }) => {
     return (
 
         <>
@@ -10,6 +10,7 @@ const SideBets = ({ pairs, trios, flush }) => {
                 <div>Pairs: {pairs.toFixed(3) % 100}%</div>
                 <div>Trios: {trios.toFixed(3) * 100}%</div>
                 <div>Flush: {flush.toFixed(3) * 100}%</div>
+                <div>Straight: {straight.toFixed(3) * 100}%</div>
             </div>
         </>
     )
