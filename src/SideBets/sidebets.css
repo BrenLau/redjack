@@ -4,9 +4,30 @@
 
 .sidebets {
     width: 200px;
-    height: 300px;
+    height: 175px;
     background-color: darkgreen;
     border: rgba(0, 0, 0, .4) 1px solid;
     border-radius: 5px;
+}
+
+.sidebetstitle {
+    width: 100%;
+    border-bottom: solid black 1px;
+    border-top: solid black 1px;
+    background-color: rgb(241, 243, 246);
+    color: rgb(43, 229, 5);
+    text-shadow:
+        1px 1px 0 #000000,
+        -1px 1px 0 #000000,
+        -1px -1px 0 #000000,
+        1px -1px 0 #000000;
+}
+
+.sidebetsodds {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 5px;
 
 }
