@@ -8,8 +8,11 @@ export const calculatePairs = (cardCount) => {
     let sevenCount = cardCount['7S'] + cardCount['7H'] + cardCount['7C'] + cardCount['7D']
     let eightCount = cardCount['8S'] + cardCount['8H'] + cardCount['8C'] + cardCount['8D']
     let nineCount = cardCount['9S'] + cardCount['9H'] + cardCount['9C'] + cardCount['9D']
-    let tenCount = cardCount['TS'] + cardCount['TH'] + cardCount['TC'] + cardCount['TD'] + cardCount['JS'] + cardCount['JH'] + cardCount['JC'] + cardCount['JD'] + cardCount['QS'] + cardCount['QH'] + cardCount['QC'] + cardCount['QD'] + cardCount['KS'] + cardCount['KH'] + cardCount['KC'] + cardCount['KD']
-    let totalCount = aceCount + twoCount + threeCount + fourCount + fiveCount + sixCount + sevenCount + eightCount + nineCount + tenCount
+    let tenCount = cardCount['TS'] + cardCount['TH'] + cardCount['TC'] + cardCount['TD']
+    let jackCount = cardCount['JS'] + cardCount['JH'] + cardCount['JC'] + cardCount['JD']
+    let queenCount = cardCount['QS'] + cardCount['QH'] + cardCount['QC'] + cardCount['QD']
+    let kingCount = cardCount['KS'] + cardCount['KH'] + cardCount['KC'] + cardCount['KD']
+    let totalCount = aceCount + twoCount + threeCount + fourCount + fiveCount + sixCount + sevenCount + eightCount + nineCount + tenCount + jackCount + queenCount + kingCount
     let prob = 0
 
     prob += ((aceCount / totalCount) * ((aceCount - 1) / (totalCount - 1)))
@@ -22,6 +25,10 @@ export const calculatePairs = (cardCount) => {
     prob += ((eightCount / totalCount) * ((eightCount - 1) / (totalCount - 1)))
     prob += ((nineCount / totalCount) * ((nineCount - 1) / (totalCount - 1)))
     prob += ((tenCount / totalCount) * ((tenCount - 1) / (totalCount - 1)))
+    prob += ((jackCount / totalCount) * ((jackCount - 1) / (totalCount - 1)))
+    prob += ((queenCount / totalCount) * ((queenCount - 1) / (totalCount - 1)))
+    prob += ((kingCount / totalCount) * ((kingCount - 1) / (totalCount - 1)))
+
     return prob
 }
 
@@ -35,8 +42,11 @@ export const calculateTrios = (cardCount) => {
     let sevenCount = cardCount['7S'] + cardCount['7H'] + cardCount['7C'] + cardCount['7D']
     let eightCount = cardCount['8S'] + cardCount['8H'] + cardCount['8C'] + cardCount['8D']
     let nineCount = cardCount['9S'] + cardCount['9H'] + cardCount['9C'] + cardCount['9D']
-    let tenCount = cardCount['TS'] + cardCount['TH'] + cardCount['TC'] + cardCount['TD'] + cardCount['JS'] + cardCount['JH'] + cardCount['JC'] + cardCount['JD'] + cardCount['QS'] + cardCount['QH'] + cardCount['QC'] + cardCount['QD'] + cardCount['KS'] + cardCount['KH'] + cardCount['KC'] + cardCount['KD']
-    let totalCount = aceCount + twoCount + threeCount + fourCount + fiveCount + sixCount + sevenCount + eightCount + nineCount + tenCount
+    let tenCount = cardCount['TS'] + cardCount['TH'] + cardCount['TC'] + cardCount['TD']
+    let jackCount = cardCount['JS'] + cardCount['JH'] + cardCount['JC'] + cardCount['JD']
+    let queenCount = cardCount['QS'] + cardCount['QH'] + cardCount['QC'] + cardCount['QD']
+    let kingCount = cardCount['KS'] + cardCount['KH'] + cardCount['KC'] + cardCount['KD']
+    let totalCount = aceCount + twoCount + threeCount + fourCount + fiveCount + sixCount + sevenCount + eightCount + nineCount + tenCount + jackCount + queenCount + kingCount
     let prob = 0
 
     prob += ((aceCount / totalCount) * ((aceCount - 1) / (totalCount - 1)) * ((aceCount - 2) / (totalCount - 2)))
@@ -49,6 +59,9 @@ export const calculateTrios = (cardCount) => {
     prob += ((eightCount / totalCount) * ((eightCount - 1) / (totalCount - 1))) * ((eightCount - 2) / (totalCount - 2))
     prob += ((nineCount / totalCount) * ((nineCount - 1) / (totalCount - 1))) * ((nineCount - 2) / (totalCount - 2))
     prob += ((tenCount / totalCount) * ((tenCount - 1) / (totalCount - 1))) * ((tenCount - 2) / (totalCount - 2))
+    prob += ((jackCount / totalCount) * ((jackCount - 1) / (totalCount - 1))) * ((jackCount - 2) / (totalCount - 2))
+    prob += ((queenCount / totalCount) * ((queenCount - 1) / (totalCount - 1))) * ((queenCount - 2) / (totalCount - 2))
+    prob += ((kingCount / totalCount) * ((kingCount - 1) / (totalCount - 1))) * ((kingCount - 2) / (totalCount - 2))
 
     return prob
 }
