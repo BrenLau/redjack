@@ -13,6 +13,12 @@
     top: 0px;
 }
 
+@media screen and (max-width: 500px) {
+    .deck {
+        width: 80px;
+    }
+}
+
 /* width */
 .deck::-webkit-scrollbar {
     width: 10px;

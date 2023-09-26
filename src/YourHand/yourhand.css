@@ -13,6 +13,13 @@
     overflow-x: auto;
 }
 
+@media screen and (max-width: 500px) {
+    .yourhand {
+        width: calc(100% - 80px);
+
+    }
+}
+
 .yourcount {
     position: absolute;
     top: 50px;
