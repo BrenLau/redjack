@@ -125,8 +125,10 @@
 
 }
 
+
 @keyframes buttonshadow {
     from {
+        background-color: rgba(234, 234, 234, .5);
         box-shadow: 2px 2px 0 0 rgba(0, 0, 0, .4);
         top: 0px;
         left: 0px;
@@ -135,6 +137,7 @@
 
     to {
         box-shadow: 0px 0px 0 0 rgba(0, 0, 0, .4);
+        background-color: rgba(255, 0, 0, 0.8);
         top: 2px;
         left: 2px;
     }
