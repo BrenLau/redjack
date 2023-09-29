@@ -14,20 +14,9 @@ const Card = ({ noClick, setYourCount, yourCards, setYourCards, cardCount, setCa
                 <div onClick={(e) => {
                     e.stopPropagation()
                 }} className='decideBar'>
-                    <div className='card'>
-                        <div className='topline'>{
-                            card[0] === 'T' ? '10' : card[0]
-                        }</div>
 
-                        <img className='suit' src={
-                            card[1] === 'S' ? spade : card[1] === 'H' ? heart : card[1] === 'C' ? club : diamond
-                        }></img>
-                        <div className='botline'>x{cardCount[card]}</div>
-
-                    </div >
                     <div className='options'>
                         <button className='decisionButton'
-                            // disabled={dealercard ? true : false}
                             onClick={(e) => {
                                 e.preventDefault()
                                 e.stopPropagation()
@@ -41,7 +30,38 @@ const Card = ({ noClick, setYourCount, yourCards, setYourCards, cardCount, setCa
                                     setCardCount(currentCards)
                                     setDecide(false)
                                 }
-                            }}>Dealer</button>
+                            }}><div className='card'>
+                                <div className='topline'>{
+                                    card[0] === 'T' ? '10' : card[0]
+                                }</div>
+
+                                <img className='suit' src={
+                                    card[1] === 'S' ? spade : card[1] === 'H' ? heart : card[1] === 'C' ? club : diamond
+                                }></img>
+                                <div className='botline'>x{cardCount[card]}</div>
+
+                            </div >Dealer</button>
+                        <button className='decisionButton' onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            if (cardCount[card] > 0) {
+                                let currentCards = { ...cardCount }
+                                currentCards[card] -= 1
+                                setCardCount(currentCards)
+                                setDecide(false)
+
+                            }
+                        }}><div className='card'>
+                                <div className='topline'>{
+                                    card[0] === 'T' ? '10' : card[0]
+                                }</div>
+
+                                <img className='suit' src={
+                                    card[1] === 'S' ? spade : card[1] === 'H' ? heart : card[1] === 'C' ? club : diamond
+                                }></img>
+                                <div className='botline'>x{cardCount[card]}</div>
+
+                            </div >Discard</button>
                         <button className='decisionButton' onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
@@ -55,18 +75,17 @@ const Card = ({ noClick, setYourCount, yourCards, setYourCards, cardCount, setCa
                                 setDecide(false)
 
                             }
-                        }}>Your Hand</button>
-                        <button className='decisionButton' onClick={(e) => {
-                            e.preventDefault()
-                            e.stopPropagation()
-                            if (cardCount[card] > 0) {
-                                let currentCards = { ...cardCount }
-                                currentCards[card] -= 1
-                                setCardCount(currentCards)
-                                setDecide(false)
+                        }}><div className='card'>
+                                <div className='topline'>{
+                                    card[0] === 'T' ? '10' : card[0]
+                                }</div>
 
-                            }
-                        }}>Discard</button>
+                                <img className='suit' src={
+                                    card[1] === 'S' ? spade : card[1] === 'H' ? heart : card[1] === 'C' ? club : diamond
+                                }></img>
+                                <div className='botline'>x{cardCount[card]}</div>
+
+                            </div >Your Hand</button>
                     </div>
                 </div>
             </Modal> : null}

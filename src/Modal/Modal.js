@@ -7,7 +7,7 @@ const Modal = ({ children, onClick }) => {
         <div onClick={(e) => {
             e.preventDefault()
             e.stopPropagation()
-            onClick()
+            onClick(false)
         }} id='backdrop'>{children}</div>
 
     )
