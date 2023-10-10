@@ -31,7 +31,7 @@ const Card = ({ noClick, setYourCount, yourCards, setYourCards, cardCount, setCa
                                     setDecide(false)
                                 }
                             }}><div className='card'>
-                                <div className='topline'>{
+                                <div className='topline' id={card[1] === 'H' || card[1] === 'D' ? 'red' : null}>{
                                     card[0] === 'T' ? '10' : card[0]
                                 }</div>
 
