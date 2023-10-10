@@ -374,44 +374,44 @@ const calcOdds = (start, iAces, iTwos, iThrees, iFours, iFives, iSixes, iSevens,
                                         odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7))
                                         continue;
                                     }
-                                    for (let g = 1; g <= 6; g++) {
-                                        let ninthNum = g === 10 ? iTens : g === 9 ? iNines : g === 8 ? iEights : g === 7 ? iSevens : g === 6 ? iSixes : g === 5 ? iFives : g === 4 ? iFours : g === 3 ? iThrees : g === 2 ? iTwos : iAces
-                                        if (imaginaryCount + i + x + y + b + c + d + e + f + g === 17) {
-                                            odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
-                                            continue;
-                                        } else if (imaginaryCount + i + x + y + b + c + d + e + f + g === 18) {
-                                            odds18 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
-                                            continue;
-                                        } else if (imaginaryCount + i + x + y + b + c + d + e + f + g === 19) {
-                                            odds19 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
-                                            continue;
-                                        } else if (imaginaryCount + i + x + y + b + c + d + e + f + g === 20) {
-                                            odds20 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
-                                            continue;
-                                        } else if (imaginaryCount + i + x + y + b + c + d + e + f + g === 21) {
-                                            odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
-                                            continue;
-                                        }
-                                        for (let h = 1; h <= 6; h++) {
-                                            let tenthNum = h === 10 ? iTens : h === 9 ? iNines : h === 8 ? iEights : h === 7 ? iSevens : h === 6 ? iSixes : h === 5 ? iFives : h === 4 ? iFours : h === 3 ? iThrees : h === 2 ? iTwos : iAces
-                                            if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 17) {
-                                                odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
-                                                continue;
-                                            } else if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 18) {
-                                                odds18 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
-                                                continue;
-                                            } else if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 19) {
-                                                odds19 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
-                                                continue;
-                                            } else if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 20) {
-                                                odds20 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
-                                                continue;
-                                            } else if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 21) {
-                                                odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
-                                                continue;
-                                            }
-                                        }
-                                    }
+                                    // for (let g = 1; g <= 6; g++) {
+                                    //     let ninthNum = g === 10 ? iTens : g === 9 ? iNines : g === 8 ? iEights : g === 7 ? iSevens : g === 6 ? iSixes : g === 5 ? iFives : g === 4 ? iFours : g === 3 ? iThrees : g === 2 ? iTwos : iAces
+                                    //     if (imaginaryCount + i + x + y + b + c + d + e + f + g === 17) {
+                                    //         odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
+                                    //         continue;
+                                    //     } else if (imaginaryCount + i + x + y + b + c + d + e + f + g === 18) {
+                                    //         odds18 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
+                                    //         continue;
+                                    //     } else if (imaginaryCount + i + x + y + b + c + d + e + f + g === 19) {
+                                    //         odds19 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
+                                    //         continue;
+                                    //     } else if (imaginaryCount + i + x + y + b + c + d + e + f + g === 20) {
+                                    //         odds20 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
+                                    //         continue;
+                                    //     } else if (imaginaryCount + i + x + y + b + c + d + e + f + g === 21) {
+                                    //         odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8))
+                                    //         continue;
+                                    //     }
+                                    //     for (let h = 1; h <= 6; h++) {
+                                    //         let tenthNum = h === 10 ? iTens : h === 9 ? iNines : h === 8 ? iEights : h === 7 ? iSevens : h === 6 ? iSixes : h === 5 ? iFives : h === 4 ? iFours : h === 3 ? iThrees : h === 2 ? iTwos : iAces
+                                    //         if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 17) {
+                                    //             odds17 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
+                                    //             continue;
+                                    //         } else if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 18) {
+                                    //             odds18 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * (fourthNum / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
+                                    //             continue;
+                                    //         } else if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 19) {
+                                    //             odds19 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
+                                    //             continue;
+                                    //         } else if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 20) {
+                                    //             odds20 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
+                                    //             continue;
+                                    //         } else if (imaginaryCount + i + x + y + b + c + d + e + f + g + h === 21) {
+                                    //             odds21 += (num / iTotal) * ((secNum - dups1) / (iTotal - 1)) * ((thirdNum - dups2) / (iTotal - 2)) * ((fourthNum - dups3) / (iTotal - 3)) * ((fifthNum - dups4) / (iTotal - 4)) * (sixthNum / (iTotal - 5)) * (seventhNum / (iTotal - 6)) * (eightNum / (iTotal - 7)) * (ninthNum / (iTotal - 8)) * (tenthNum / (iTotal - 9))
+                                    //             continue;
+                                    //         }
+                                    //     }
+                                    // }
                                 }
                             }
                         }
