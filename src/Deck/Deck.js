@@ -8,7 +8,7 @@ const Deck = ({ setYourCount, yourCards, setYourCards, cardCount, setCardCount, 
             {defaultDeck.map((card) => {
 
                 return (
-                    <Card setYourCount={setYourCount} yourCards={yourCards} setYourCards={setYourCards} cardCount={cardCount} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} card={card} cardCounter={cardCounter} />
+                    <Card deckCard={true} setYourCount={setYourCount} yourCards={yourCards} setYourCards={setYourCards} cardCount={cardCount} setCardCount={setCardCount} dealercard={dealercard} setDealercard={setDealercard} card={card} cardCounter={cardCounter} />
                 )
             }
             )}

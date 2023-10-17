@@ -6,14 +6,15 @@ import diamond from './suits/diamond.png'
 import { useState } from 'react'
 import Modal from '../Modal/Modal'
 
-const Card = ({ noClick, setYourCount, yourCards, setYourCards, cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
+const Card = ({ deckCard, noClick, setYourCount, yourCards, setYourCards, cardCount, setCardCount, dealercard, card, cardCounter, setDealercard }) => {
     const [decide, setDecide] = useState(false)
     return (
         <>
             {decide ? <Modal onClick={setDecide}>
                 <div onClick={(e) => {
                     e.stopPropagation()
-                }} className='decideBar'>
+                }}
+                    className='decideBar'>
 
                     <div className='options'>
                         <button className='decisionButton'
@@ -95,7 +96,16 @@ const Card = ({ noClick, setYourCount, yourCards, setYourCards, cardCount, setCa
                 if (cardCount[card] > 0) {
                     setDecide(card)
                 }
-            }}>
+            }}
+                onContextMenu={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    if (cardCount[card] > 0) {
+                        let currentCards = { ...cardCount }
+                        currentCards[card] -= 1
+                        setCardCount(currentCards)
+                    }
+                }}>
 
                 <div className='topline'>{
                     card[0] === 'T' ? '10' : card[0]
